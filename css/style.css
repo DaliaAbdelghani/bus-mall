@@ -1,0 +1,22 @@
+
+body {width: 1500px;margin: auto;}
+
+header {height: 55px;margin-bottom: 100px;}
+
+nav {position: absolute;border-color: red;border-style: solid;width: 1500px;}
+
+nav img, nav p {display: inline-block;}
+
+nav img {width: 95px;height: 95px;margin-top: 25px ;padding-right: 20px;float: left;}
+
+nav p {font-size: 35px;}
+
+#title {text-align: center;font-size: 35px;}
+
+aside {float: left; width: 250px;border-style: solid;border-color: red;display: block;height: 874px;}
+
+#imagesSection {display: inline-block;border-color:  red;border-style: solid}
+
+div p {width: auto;margin-left: 20px;word-wrap: normal;}
+
+footer p {display:block;border-color:  red;border-style: solid;width: 1500px;text-align: center;margin-top: 420px;margin-left: 1px;}
