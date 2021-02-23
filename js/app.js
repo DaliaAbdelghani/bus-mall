@@ -131,6 +131,7 @@ function viewResults() {
 // add chart 
 
 let productsVotes =[];
+let productsViews =[];
 
 function createChart(product){
 
@@ -138,19 +139,29 @@ function createChart(product){
 
   for (let i=0; i< product.length;i++){
     let votes=product[i].votes;
+    let views=product[i].views;
     productsVotes.push(votes);
+    productsViews.push(views);
   }
 
   new Chart(ctx, {
     type: 'bar',
     data: {
       labels: names,
-      datasets: [{
-        label: 'Voting Chart',
-        backgroundColor: 'brown',
-        borderColor: 'white',
-        data: productsVotes,
-      }]
+      datasets: [
+        {
+          label: 'Voting',
+          backgroundColor: 'brown',
+          borderColor: 'white',
+          data: productsVotes,
+        },
+        {
+          label: 'Views',
+          backgroundColor: 'orange',
+          borderColor: 'white',
+          data: productsViews,
+        }
+      ]
     },
   });
 }
