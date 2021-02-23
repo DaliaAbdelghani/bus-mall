@@ -13,9 +13,11 @@ nav p {font-size: 35px;}
 
 #title {text-align: center;font-size: 35px;}
 
-aside {float: left; width: 250px;border-style: solid;border-color: red;display: block;height: 874px;}
+aside {float: left; width: 250px;border-style: solid;border-color: red;display: block;height: 400px;overflow: hidden;overflow-y: scroll}
 
-#imagesSection {display: inline-block;border-color:  red;border-style: solid}
+#imagesSection {display: inline-block;border-color:  red;border-style: solid;}
+
+div img { border-style: solid;    cursor: grab;border-color: red;height: 300px;width: 300px; margin-bottom: 60px;}
 
 div p {width: auto;margin-left: 20px;word-wrap: normal;}
 

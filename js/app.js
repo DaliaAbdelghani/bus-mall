@@ -30,7 +30,7 @@ const imagesSection = document.getElementById('images-section');
 let start = 0;
 var prodList = [];
 let rounds = 0;
-const maxRounds = 6;
+const maxRounds = 7;
 attachProductsListeners();
 
 function attachProductsListeners() {
@@ -93,7 +93,8 @@ function vote(idx) {
   rounds++;
   if (rounds >= maxRounds) {
     detachProductsListeners();
-    viewResults();
+    let results =viewResults();
+    createChart(results);
     alert('your max number of rounds has finished');
   }
 
@@ -122,48 +123,34 @@ function viewResults() {
     li.innerText = `${prod.name} had ${prod.votes} votes, and was seen ${prod.views} times.`;
     result.appendChild(li);
   }
+
   localStorage.setItem('allProds', JSON.stringify(resultProds));
-
+  return resultProds;
 }
 
-/*
-function render() {
-  const leftIndex = randomNumber(0, allProducts - 1);
-  console.log('LEFT', leftIndex, allProducts[leftIndex].path);
-  leftImage.src = allProducts[leftIndex].path;
-  leftImage.title = allProducts[leftIndex].name;
-  leftImage.alt = allProducts[leftIndex].name;
+// add chart 
 
-  const centerIndex = randomNumber(0, allProducts - 1);
-  console.log('CENTER', centerIndex, allProducts[centerIndex].path);
-  centerImage.src = allProducts[centerIndex].path;
-  centerImage.title = allProducts[centerIndex].name;
-  centerImage.alt = allProducts[centerIndex].name;
+let productsVotes =[];
 
-  const rightIndex = randomNumber(0, allProducts - 1);
-  console.log('Right', rightIndex);
-  rightImage.src = allProducts[rightIndex].path;
-  rightImage.title = allProducts[rightIndex].name;
-  rightImage.alt = allProducts[rightIndex].name;
-}
+function createChart(product){
 
-imagesSection.addEventListener('click', handleClick);
+  const ctx = document.getElementById('myChart').getContext('2d');
 
-function handleClick(event) {
-  console.log('Target', event.target.id);
-  if (event.target.id !== 'images-section') {
-    for (let i = 0; i < allProducts.length; i++) {
-      if (allProducts[i].name === event.target.title) {
-        allProducts[i].votes++;
-      }
-    }
-    console.log(allProducts);
-    render();
+  for (let i=0; i< product.length;i++){
+    let votes=product[i].votes;
+    productsVotes.push(votes);
   }
-}
-//helper functions
-function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-render(); */
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: names,
+      datasets: [{
+        label: 'Voting Chart',
+        backgroundColor: 'brown',
+        borderColor: 'white',
+        data: productsVotes,
+      }]
+    },
+  });
+}
