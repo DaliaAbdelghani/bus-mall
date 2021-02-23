@@ -165,4 +165,3 @@ function createChart(product){
     },
   });
 }
-
