@@ -1,24 +1,24 @@
 
 body {width: 1500px;margin: auto;}
 
+* {font-family: McLaren;}
+
 header {height: 55px;margin-bottom: 100px;}
 
-nav {position: absolute;border-color: red;border-style: solid;width: 1500px;}
+nav {position: absolute;border-color: red;border-style: solid;width: 1500px;height: 100px;}
 
-nav img, nav p {display: inline-block;}
+nav img {width: 150px;height: 150px;margin-top: 25px ;padding:0px;margin-left:650px;}
 
-nav img {width: 95px;height: 95px;margin-top: 25px ;padding-right: 20px;float: left;}
+nav p {font-size: 50px;text-align: center;margin-top: 0px;font-weight: bold;}
 
-nav p {font-size: 35px;}
+#title {text-align: center;font-size: 30px;position: absolute; margin-top: 150px;margin-left: 520px;}
 
-#title {text-align: center;font-size: 35px;}
-
-aside {float: left; width: 250px;border-style: solid;border-color: red;display: block;height: 400px;overflow: hidden;overflow-y: scroll}
+aside {float: left; width: 250px;border-style: solid;border-color: red;display: block;height: 570px;overflow: hidden;overflow-y: scroll;margin-top:10px ;}
 
 #imagesSection {display: inline-block;border-color:  red;border-style: solid;}
 
-div img { border-style: solid;    cursor: grab;border-color: red;height: 300px;width: 300px; margin-bottom: 60px;}
+div img { border-style: solid;    cursor: grab;border-color: red;height: 350px;width: 350px; margin-bottom: 60px;margin-top: 230px;}
 
 div p {width: auto;margin-left: 20px;word-wrap: normal;}
 
-footer p {display:block;border-color:  red;border-style: solid;width: 1500px;text-align: center;margin-top: 420px;margin-left: 1px;}
+footer p {display:block;border-color:  red;border-style: solid;width: 1500px;text-align: center;margin-top: 110px;margin-left: 1px;}
