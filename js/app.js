@@ -30,7 +30,7 @@ const imagesSection = document.getElementById('images-section');
 let start = 0;
 var prodList = [];
 let rounds = 0;
-const maxRounds = 6;
+const maxRounds = 7;
 attachProductsListeners();
 
 function attachProductsListeners() {
@@ -93,7 +93,8 @@ function vote(idx) {
   rounds++;
   if (rounds >= maxRounds) {
     detachProductsListeners();
-    viewResults();
+    let results =viewResults();
+    createChart(results);
     alert('your max number of rounds has finished');
   }
 
@@ -122,33 +123,35 @@ function viewResults() {
     li.innerText = `${prod.name} had ${prod.votes} votes, and was seen ${prod.views} times.`;
     result.appendChild(li);
   }
+
   localStorage.setItem('allProds', JSON.stringify(resultProds));
+  return resultProds;
 }
 
-/*
-function createChart() {
+// add chart 
+
+let productsVotes =[];
+
+function createChart(product){
+
   const ctx = document.getElementById('myChart').getContext('2d');
-  const names = [];
-  const Votes = [];
-  for (let i = 0; i < allProducts.length; i++) {
-    names.push(allProducts[i].name);
-    votes.push(allProducts[i].votes);
+
+  for (let i=0; i< product.length;i++){
+    let votes=product[i].votes;
+    productsVotes.push(votes);
   }
-  console.log('Votes', votes);
+
   new Chart(ctx, {
-
     type: 'bar',
-
     data: {
       labels: names,
-      datasets: [
-{
-          barPercentage: 0.5,
-          borderWidth: 5,
-          label: '# of votes:',
-          backgroundColor: 'rgb(100, 125, 50)',
-          borderColor: 'rgb(0, 0, 0)',
-          data: votes,
-        },
-],
-    },*/
+      datasets: [{
+        label: 'Voting Chart',
+        backgroundColor: 'brown',
+        borderColor: 'white',
+        data: productsVotes,
+      }]
+    },
+  });
+}
+
